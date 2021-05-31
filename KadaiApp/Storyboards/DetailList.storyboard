@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--詳細-->
+        <scene sceneID="iDC-Fk-ygy">
+            <objects>
+                <viewController storyboardIdentifier="DetailListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pTp-Ky-Tbw" customClass="DetailListViewController" customModule="KadaiApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3in-62-Ia7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ce2-Sq-pHb">
+                                <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailCell" textLabel="aU7-Dr-pMX" style="IBUITableViewCellStyleDefault" id="Ge9-cD-fGZ">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ge9-cD-fGZ" id="4wm-gT-TFF">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aU7-Dr-pMX">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRO-Al-lCw">
+                                <rect key="frame" x="132" y="54" width="150" height="35"/>
+                                <color key="backgroundColor" name="AllPlayButton"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="DEE-z6-AJG"/>
+                                    <constraint firstAttribute="height" constant="35" id="uZv-UM-JGz"/>
+                                </constraints>
+                                <state key="normal" title="全区間再生"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="18"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9dZ-TW-BaM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ce2-Sq-pHb" firstAttribute="leading" secondItem="9dZ-TW-BaM" secondAttribute="leading" id="DwD-PY-pQy"/>
+                            <constraint firstItem="aRO-Al-lCw" firstAttribute="top" secondItem="9dZ-TW-BaM" secondAttribute="top" constant="10" id="GES-OO-ozd"/>
+                            <constraint firstItem="Ce2-Sq-pHb" firstAttribute="top" secondItem="aRO-Al-lCw" secondAttribute="bottom" constant="5" id="cmQ-oh-ckm"/>
+                            <constraint firstItem="9dZ-TW-BaM" firstAttribute="trailing" secondItem="Ce2-Sq-pHb" secondAttribute="trailing" id="kmb-xS-WPy"/>
+                            <constraint firstItem="9dZ-TW-BaM" firstAttribute="bottom" secondItem="Ce2-Sq-pHb" secondAttribute="bottom" id="lEO-iv-ZL0"/>
+                            <constraint firstItem="aRO-Al-lCw" firstAttribute="centerX" secondItem="3in-62-Ia7" secondAttribute="centerX" id="wGx-Jb-weE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="詳細" id="cfj-4I-0m1"/>
+                    <connections>
+                        <outlet property="detailTableView" destination="Ce2-Sq-pHb" id="60q-Ok-1dN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yX8-sQ-5gh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="31.884057971014496" y="83.705357142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="AllPlayButton">
+            <color red="0.66478431224822998" green="0.73777174949645996" blue="0.93520718812942505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

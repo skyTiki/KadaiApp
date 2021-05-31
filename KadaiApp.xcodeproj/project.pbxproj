@@ -13,6 +13,10 @@
 		A17F223E266497E20021E3E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17F223C266497E20021E3E6 /* Main.storyboard */; };
 		A17F2240266497E30021E3E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A17F223F266497E30021E3E6 /* Assets.xcassets */; };
 		A17F2243266497E30021E3E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17F2241266497E30021E3E6 /* LaunchScreen.storyboard */; };
+		A17F224E26649F4F0021E3E6 /* DetailList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17F224D26649F4F0021E3E6 /* DetailList.storyboard */; };
+		A17F225126649F820021E3E6 /* DetailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17F225026649F820021E3E6 /* DetailListViewController.swift */; };
+		A1EDFB302664A6FB00714AA9 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EDFB2F2664A6FB00714AA9 /* Detail.storyboard */; };
+		A1EDFB332664A71200714AA9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EDFB322664A71200714AA9 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		A17F223F266497E30021E3E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A17F2242266497E30021E3E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A17F2244266497E30021E3E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A17F224D26649F4F0021E3E6 /* DetailList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailList.storyboard; sourceTree = "<group>"; };
+		A17F225026649F820021E3E6 /* DetailListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailListViewController.swift; sourceTree = "<group>"; };
+		A1EDFB2F2664A6FB00714AA9 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		A1EDFB322664A71200714AA9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +66,33 @@
 			children = (
 				A17F2236266497E20021E3E6 /* AppDelegate.swift */,
 				A17F2238266497E20021E3E6 /* SceneDelegate.swift */,
-				A17F223A266497E20021E3E6 /* ViewController.swift */,
-				A17F223C266497E20021E3E6 /* Main.storyboard */,
+				A17F224C26649F150021E3E6 /* ViewControllers */,
+				A17F224B26649F010021E3E6 /* Storyboards */,
 				A17F223F266497E30021E3E6 /* Assets.xcassets */,
 				A17F2241266497E30021E3E6 /* LaunchScreen.storyboard */,
 				A17F2244266497E30021E3E6 /* Info.plist */,
 			);
 			path = KadaiApp;
+			sourceTree = "<group>";
+		};
+		A17F224B26649F010021E3E6 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A17F223C266497E20021E3E6 /* Main.storyboard */,
+				A17F224D26649F4F0021E3E6 /* DetailList.storyboard */,
+				A1EDFB2F2664A6FB00714AA9 /* Detail.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		A17F224C26649F150021E3E6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A17F223A266497E20021E3E6 /* ViewController.swift */,
+				A17F225026649F820021E3E6 /* DetailListViewController.swift */,
+				A1EDFB322664A71200714AA9 /* DetailViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +155,8 @@
 				A17F2243266497E30021E3E6 /* LaunchScreen.storyboard in Resources */,
 				A17F2240266497E30021E3E6 /* Assets.xcassets in Resources */,
 				A17F223E266497E20021E3E6 /* Main.storyboard in Resources */,
+				A1EDFB302664A6FB00714AA9 /* Detail.storyboard in Resources */,
+				A17F224E26649F4F0021E3E6 /* DetailList.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +169,9 @@
 			files = (
 				A17F223B266497E20021E3E6 /* ViewController.swift in Sources */,
 				A17F2237266497E20021E3E6 /* AppDelegate.swift in Sources */,
+				A1EDFB332664A71200714AA9 /* DetailViewController.swift in Sources */,
 				A17F2239266497E20021E3E6 /* SceneDelegate.swift in Sources */,
+				A17F225126649F820021E3E6 /* DetailListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
