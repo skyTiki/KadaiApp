@@ -22,7 +22,7 @@ class SettingViewController: UIViewController {
             // アラートOKでデータ作成を行う
             HUD.show(.progress)
             self.createFirestoreData {
-                HUD.flash(.success, delay: 2)
+                HUD.flash(.success, delay: 1.5)
             }
         }))
         
@@ -50,11 +50,14 @@ class SettingViewController: UIViewController {
                 
                 let sectionRef = Firestore.firestore().collection(Const.SectionPath).document()
                 
-                let startDate = Calendar.current.date(byAdding: .minute, value: sectionCount + 10, to: date)!
-                let endDate = Calendar.current.date(byAdding: .minute, value: sectionCount + 30, to: startDate)!
+                let randomEkiListNumber = Int.random(in: 0...27)
+                
+                let randomDateNumber = Int.random(in: 20...50)
+                
+                let startDate = Calendar.current.date(byAdding: .minute, value: sectionCount + randomDateNumber, to: date)!
+                let endDate = Calendar.current.date(byAdding: .minute, value: sectionCount + randomDateNumber, to: startDate)!
                 date = endDate
                 
-                let randomEkiListNumber = Int.random(in: 0...27)
                 
                 let sectionDic: [String : Any] = [
                     "rootId" : rootRef.documentID,
