@@ -53,6 +53,9 @@
                                         <integer key="value" value="18"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tappedAllSectionPlay:" destination="pTp-Ky-Tbw" eventType="touchUpInside" id="XJT-Nc-ZJS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9dZ-TW-BaM"/>

@@ -26,6 +26,9 @@ class DetailListViewController: UIViewController {
                         self.sectionArray.append(section)
                     }
                     
+                    // 開始時刻の昇順にソート
+                    self.sectionArray.sort { $0.startTime!.compare($1.startTime!) == ComparisonResult.orderedAscending }
+                    
                     self.detailTableView.reloadData()
                     
                 }
@@ -49,6 +52,21 @@ class DetailListViewController: UIViewController {
         if let onSelectIndexPath = detailTableView.indexPathForSelectedRow {
             detailTableView.deselectRow(at: onSelectIndexPath, animated: false)
         }
+    }
+    
+    @IBAction func tappedAllSectionPlay(_ sender: Any) {
+        
+        let firstSection = sectionArray.first
+        let lastSection = sectionArray.last
+        
+        let allSection = Section(id: "", rootId: "", startPoint: firstSection?.startPoint, destinatination: lastSection?.destinatination, scheduledStartTime: firstSection?.scheduledStartTime, scheduledEndTime: lastSection?.scheduledEndTime, startTime: firstSection?.startTime, endTime: lastSection?.endTime)
+        
+        let detailStoryboard = UIStoryboard(name: "Detail", bundle: nil)
+        let detailViewController = detailStoryboard.instantiateViewController(identifier: "DetailViewController") as! DetailViewController
+        detailViewController.navigationItem.title = "\(allSection.startPoint!) ~ \(allSection.destinatination!)"
+        detailViewController.section = allSection
+        
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
 

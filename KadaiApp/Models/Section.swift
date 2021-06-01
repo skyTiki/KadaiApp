@@ -34,4 +34,15 @@ class Section {
         self.endTime = (document["endTime"] as! Timestamp).dateValue()
 
     }
+    
+    init(id: String, rootId: String, startPoint: String? = nil, destinatination: String? = nil, scheduledStartTime: Date? = nil, scheduledEndTime: Date? = nil, startTime: Date? = nil, endTime: Date? = nil) {
+        self.id = id
+        self.rootId = rootId
+        self.startPoint = startPoint
+        self.destinatination = destinatination
+        self.scheduledStartTime = scheduledStartTime
+        self.scheduledEndTime = scheduledEndTime
+        self.startTime = startTime
+        self.endTime = endTime
+    }
 }
