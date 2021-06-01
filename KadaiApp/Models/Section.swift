@@ -21,6 +21,16 @@ class Section {
     
     var startTime: Date?
     var endTime: Date?
+        
+    var formatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        return formatter
+    }
+    
+    func getFormatDate(date: Date) -> String {
+        return formatter.string(from: date)
+    }
     
     init(document: QueryDocumentSnapshot) {
         self.id = document.documentID

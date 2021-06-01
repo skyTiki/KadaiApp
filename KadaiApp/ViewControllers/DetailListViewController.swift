@@ -80,6 +80,7 @@ extension DetailListViewController: UITableViewDelegate, UITableViewDataSource {
         
         let section = sectionArray[indexPath.row]
         cell.textLabel?.text = "\(section.startPoint!) ~ \(section.destinatination!)"
+        cell.detailTextLabel?.text = "\(section.getFormatDate(date: section.startTime!)) ~ \(section.getFormatDate(date: section.endTime!))"
         
         return cell
     }

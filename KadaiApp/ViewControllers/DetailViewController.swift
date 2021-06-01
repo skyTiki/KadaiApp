@@ -25,12 +25,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailViewEndTimeLabel: UILabel!
     
     
-    var formatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "H:mm"
-        return formatter
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -44,18 +38,18 @@ class DetailViewController: UIViewController {
         guard let section = section else { return }
         
         // スクロールアニメーション部分のView
-        scrollViewScheduledStartTimeLabel.text = "\(formatter.string(from: section.scheduledStartTime!)) (予定)"
-        scrollViewScheduledEndTimeLabel.text = "\(formatter.string(from: section.scheduledEndTime!)) (予定)"
-        scrollViewStartTimeLabel.text = "\(formatter.string(from: section.startTime!)) (実績)"
-        scrollViewEndTimeLabel.text = "\(formatter.string(from: section.endTime!)) (実績)"
+        scrollViewScheduledStartTimeLabel.text = "\(section.getFormatDate(date: section.scheduledStartTime!)) (予定)"
+        scrollViewScheduledEndTimeLabel.text = "\(section.getFormatDate(date: section.scheduledEndTime!)) (予定)"
+        scrollViewStartTimeLabel.text = "\(section.getFormatDate(date: section.startTime!)) (実績)"
+        scrollViewEndTimeLabel.text = "\(section.getFormatDate(date: section.endTime!)) (実績)"
         
         // 詳細表示部分のView
         startPointLabel.text = section.startPoint!
         destinationLabel.text = section.destinatination!
-        detailViewScheduledStartTimeLabel.text = formatter.string(from: section.scheduledStartTime!)
-        detailViewScheduledEndTimeLabel.text = formatter.string(from: section.scheduledEndTime!)
-        detailViewStartTimeLabel.text = formatter.string(from: section.startTime!)
-        detailViewEndTimeLabel.text = formatter.string(from: section.endTime!)
+        detailViewScheduledStartTimeLabel.text = section.getFormatDate(date: section.scheduledStartTime!)
+        detailViewScheduledEndTimeLabel.text = section.getFormatDate(date: section.scheduledEndTime!)
+        detailViewStartTimeLabel.text = section.getFormatDate(date: section.startTime!)
+        detailViewEndTimeLabel.text = section.getFormatDate(date: section.endTime!)
         
         
     }
