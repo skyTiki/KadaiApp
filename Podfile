@@ -9,5 +9,6 @@ target 'KadaiApp' do
   pod 'Firebase','7.5.0'
   pod 'Firebase/Analytics'
   pod 'Firebase/Firestore'
+  pod 'PKHUD', '~> 5.0'
 
 end

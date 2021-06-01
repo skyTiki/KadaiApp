@@ -9,4 +9,5 @@ import Foundation
 
 struct Const {
     static let RootPath = "Roots"
+    static let SectionPath = "Sections"
 }
