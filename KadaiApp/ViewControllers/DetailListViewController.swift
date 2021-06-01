@@ -6,16 +6,39 @@
 //
 
 import UIKit
+import Firebase
 
 class DetailListViewController: UIViewController {
     
     @IBOutlet weak var detailTableView: UITableView!
+    
+    var sectionArray: [Section] = []
+    var root: Root? {
+        didSet {
+            if let root = root {
+                Firestore.firestore().collection(Const.SectionPath).whereField("rootId", isEqualTo: root.id).getDocuments { (querySnapshot, error) in
+                    if let error = error { fatalError("sectionの取得に失敗しました。 \(error.localizedDescription)") }
+                    
+                    for document in querySnapshot!.documents {
+                        let section = Section(document: document)
+                        self.sectionArray.append(section)
+                    }
+                    
+                    self.detailTableView.reloadData()
+                    
+                }
+            }
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         detailTableView.delegate = self
         detailTableView.dataSource = self
+        
+        
         
     }
     
@@ -26,17 +49,19 @@ class DetailListViewController: UIViewController {
         if let onSelectIndexPath = detailTableView.indexPathForSelectedRow {
             detailTableView.deselectRow(at: onSelectIndexPath, animated: false)
         }
+        
     }
 }
 
 extension DetailListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return sectionArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath)
-        cell.textLabel?.text = "東京駅〜勤務地"
+        let section = sectionArray[indexPath.row]
+        cell.textLabel?.text = "\(section.startPoint!) ~ \(section.destinatination!)"
         return cell
     }
     

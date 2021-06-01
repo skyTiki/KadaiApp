@@ -78,7 +78,7 @@
     </scenes>
     <resources>
         <namedColor name="AllPlayButton">
-            <color red="0.66478431224822998" green="0.73777174949645996" blue="0.93520718812942505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.66500002145767212" green="0.73799997568130493" blue="0.93500000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

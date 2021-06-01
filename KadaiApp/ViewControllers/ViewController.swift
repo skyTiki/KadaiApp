@@ -66,6 +66,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailStoryboard = UIStoryboard(name: "DetailList", bundle: nil)
         let viewController = detailStoryboard.instantiateViewController(identifier: "DetailListViewController") as! DetailListViewController
+        viewController.root = rootArray[indexPath.row]
         
         navigationController?.pushViewController(viewController, animated: true)
         
