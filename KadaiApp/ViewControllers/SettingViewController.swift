@@ -15,10 +15,15 @@ class SettingViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    // データ作成ボタン押下
     @IBAction func tappedCreateDataButton(_ sender: Any) {
         let aleart = UIAlertController(title: "データベース上にデータを作成いたします。", message: "よろしいでしょうか。", preferredStyle: .alert)
         aleart.addAction(UIAlertAction(title: "OK", style: .default, handler: { alertAction in
-            self.createFirestoreData()
+            // アラートOKでデータ作成を行う
+            HUD.show(.progress)
+            self.createFirestoreData {
+                HUD.flash(.success, delay: 2)
+            }
         }))
         
         aleart.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -28,11 +33,9 @@ class SettingViewController: UIViewController {
     }
     
     // Firestoreに投入するための擬似データの作成
-    private func createFirestoreData() {
+    private func createFirestoreData(handler: @escaping() -> Void) {
         
-        HUD.show(.progress)
-        
-        // 開始終端で使用する配列
+        // 開始終端で使用する地点の配列
         let ekiList = ["池袋", "目白", "高田馬場", "新大久保", "新宿", "代々木", "原宿", "渋谷", "恵比寿", "目黒", "五反田", "大崎", "品川", "高輪ゲートウェイ", "田町", "浜松町", "新橋", "有楽町", "東京", "神田", "秋葉原", "御徒町", "上野", "鶯谷", "日暮里", "西日暮里", "田端", "駒込", "巣鴨", "大塚"]
         
         // ループでrootデータ作成
@@ -41,6 +44,7 @@ class SettingViewController: UIViewController {
             let rootRef = Firestore.firestore().collection(Const.RootPath).document()
             
             var date = Calendar.current.startOfDay(for: Date())
+            
             // ループでセクション作成
             for sectionCount in 0...12 {
                 
@@ -74,7 +78,8 @@ class SettingViewController: UIViewController {
             rootRef.setData(rootDic)
             
         }
-        
-        HUD.flash(.success, delay: 2)
+        DispatchQueue.main.async {
+            handler()
+        }
     }
 }

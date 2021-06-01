@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchFirebase()
         
         listTableView.delegate = self
         listTableView.dataSource = self
@@ -27,18 +26,21 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        fetchFirebase()
+        
         // tableViewの選択状態解除
         if let onSelectIndexPath = listTableView.indexPathForSelectedRow {
             listTableView.deselectRow(at: onSelectIndexPath, animated: false)
         }
     }
     
-    
+    // rootデータ取得
     private func fetchFirebase() {
         
         Firestore.firestore().collection(Const.RootPath).order(by: "date").getDocuments { (querySnapshot, error) in
             if let error = error { fatalError("rootデータの取得で失敗しました。\(error.localizedDescription)") }
             
+            // インスタンス化し配列へ挿入
             for document in querySnapshot!.documents {
                 let root = Root(document: document)
                 self.rootArray.append(root)
