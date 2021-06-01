@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SettingViewController: UIViewController {
     
@@ -14,6 +15,18 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func tappedCreateDataButton(_ sender: Any) {
-        print("タップデータ作成")
+        let aleart = UIAlertController(title: "Firebase上にデータを作成いたします。", message: "よろしいでしょうか。", preferredStyle: .alert)
+        aleart.addAction(UIAlertAction(title: "OK", style: .default, handler: { alertAction in
+            print("OK")
+        }))
+        
+        aleart.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(aleart, animated: true, completion: nil)
+        
+    }
+    
+    private func createData() {
+        
     }
 }
