@@ -71,6 +71,7 @@ extension DetailListViewController: UITableViewDelegate, UITableViewDataSource {
         let detailViewController = detailStroryboard.instantiateViewController(identifier: "DetailViewController") as! DetailViewController
         // ナビゲーションバーのタイトルに設定
         detailViewController.navigationItem.title = tableView.cellForRow(at: indexPath)?.textLabel?.text
+        detailViewController.section = sectionArray[indexPath.row]
         
         navigationController?.pushViewController(detailViewController, animated: true)
     }

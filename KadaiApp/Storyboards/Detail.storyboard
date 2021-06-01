@@ -421,6 +421,18 @@
                             <constraint firstItem="lDk-fQ-UGd" firstAttribute="top" secondItem="YYl-GS-ugg" secondAttribute="bottom" constant="20" id="xl3-as-ZCP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="destinationLabel" destination="ylo-zx-HE6" id="gTC-Gi-eoY"/>
+                        <outlet property="detailViewEndTimeLabel" destination="SmB-eZ-Qr4" id="MDa-3o-gyw"/>
+                        <outlet property="detailViewScheduledEndTimeLabel" destination="aQg-FT-viS" id="TTV-Oq-H77"/>
+                        <outlet property="detailViewScheduledStartTimeLabel" destination="uqA-Kd-PoZ" id="8De-yY-BVA"/>
+                        <outlet property="detailViewStartTimeLabel" destination="hoD-vZ-ZxJ" id="TDL-VS-SSx"/>
+                        <outlet property="scrollViewEndTimeLabel" destination="aAv-wT-Ooz" id="mfn-KA-m1w"/>
+                        <outlet property="scrollViewScheduledEndTimeLabel" destination="mtx-iP-Hae" id="PBS-iq-ueE"/>
+                        <outlet property="scrollViewScheduledStartTimeLabel" destination="nNT-ul-nZR" id="r1a-oY-kdC"/>
+                        <outlet property="scrollViewStartTimeLabel" destination="PXO-dt-HyX" id="myd-EE-Vuy"/>
+                        <outlet property="startPointLabel" destination="aZv-rd-5OQ" id="qIW-a1-OYh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j2W-Go-WYQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

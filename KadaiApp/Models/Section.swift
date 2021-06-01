@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 
 class Section {
-
+    
     let id: String
     let rootId: String
     
@@ -27,9 +27,11 @@ class Section {
         self.rootId = document["rootId"] as! String
         self.startPoint = document["startPoint"] as? String
         self.destinatination = document["destinatination"] as? String
-        self.scheduledStartTime = document["scheduledStartTime"] as? Date
-        self.scheduledEndTime = document["scheduledEndTime"] as? Date
-        self.startTime = document["startTime"] as? Date
-        self.endTime = document["endTime"] as? Date
+        
+        self.scheduledStartTime = (document["scheduledStartTime"] as!Timestamp).dateValue()
+        self.scheduledEndTime = (document["scheduledEndTime"] as! Timestamp).dateValue()
+        self.startTime = (document["startTime"] as! Timestamp).dateValue()
+        self.endTime = (document["endTime"] as! Timestamp).dateValue()
+
     }
 }

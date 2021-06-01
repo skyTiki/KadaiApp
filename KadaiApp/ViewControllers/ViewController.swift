@@ -40,6 +40,8 @@ class ViewController: UIViewController {
         Firestore.firestore().collection(Const.RootPath).order(by: "date").getDocuments { (querySnapshot, error) in
             if let error = error { fatalError("rootデータの取得で失敗しました。\(error.localizedDescription)") }
             
+            self.rootArray.removeAll()
+            
             // インスタンス化し配列へ挿入
             for document in querySnapshot!.documents {
                 let root = Root(document: document)

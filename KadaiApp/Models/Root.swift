@@ -20,6 +20,7 @@ class Root{
         
         self.id = document.documentID
         self.name = rootDic["name"] as? String
-        self.date = rootDic["date"] as? Date
+        let timestamp = rootDic["date"] as? Timestamp
+        self.date = timestamp?.dateValue()
     }
 }
