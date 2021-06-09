@@ -17,6 +17,10 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var scrollViewStartTimeLabel: UILabel!
     @IBOutlet weak var scrollViewEndTimeLabel: UILabel!
     
+    @IBOutlet weak var nowKiroteiLabel: UILabel!
+    @IBOutlet weak var speedLabel: UILabel!
+    @IBOutlet weak var estimateSpeedLabel: UILabel!
+    
     @IBOutlet weak var startPointLabel: UILabel!
     @IBOutlet weak var destinationLabel: UILabel!
     @IBOutlet weak var detailViewScheduledStartTimeLabel: UILabel!
@@ -24,6 +28,17 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailViewStartTimeLabel: UILabel!
     @IBOutlet weak var detailViewEndTimeLabel: UILabel!
     
+    // アイコン移動で使用する接続
+    @IBOutlet weak var bicycleLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var startPointIconSizeConstraint: NSLayoutConstraint!
+    @IBOutlet weak var startPointIconLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var destinationIconTrailingConstraint: NSLayoutConstraint!
+    
+    var bicycleMovingDistance: CGFloat = 0
+    var bicycleIconSize: CGFloat = 0
+    var destinationIconSize: CGFloat = 0
+    
+    var firstPlayTap = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +46,13 @@ class DetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setDetailData()
+        
+        bicycleIconSize = startPointIconSizeConstraint.constant * 2.6
+        destinationIconSize = startPointIconSizeConstraint.constant * 2
+        
+        // 移動距離算出
+        bicycleMovingDistance = UIScreen.main.bounds.size.width - (startPointIconLeadingConstraint.constant + startPointIconSizeConstraint.constant + bicycleLeadingConstraint.constant + bicycleIconSize + destinationIconSize + destinationIconTrailingConstraint.constant)
+        
     }
     
     func setDetailData() {
@@ -53,5 +75,35 @@ class DetailViewController: UIViewController {
         
         
     }
-    
+    @IBAction func tappedPlayMoveButton(_ sender: Any) {
+        
+//        UIView.animate(withDuration: 5.0, delay: 2.0) {
+//            self.bicycleLeadingConstraint.constant = self.bicycleMovingDistance
+//        }
+        if firstPlayTap {
+            
+            firstPlayTap = false
+            
+            var kirotei = 0
+            
+            Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (repeatedTimer) in
+                
+                if self.bicycleLeadingConstraint.constant >= self.bicycleMovingDistance {
+                    repeatedTimer.invalidate()
+                }
+                
+                self.bicycleLeadingConstraint.constant += 3
+                
+                // 値修正
+                kirotei += 1
+                self.nowKiroteiLabel.text = "\(kirotei)km"
+                
+                let speed = Int.random(in: 150...230)
+                self.speedLabel.text = "\(speed)km/h"
+                
+                let estimatedSpeedRange = Int.random(in: 0...30)
+                self.estimateSpeedLabel.text = "\(speed + estimatedSpeedRange)km/h"
+            })
+        }
+    }
 }
