@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EZW-Sl-Qmh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EZW-Sl-Qmh">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -51,7 +51,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="行路一覧" id="csX-Fz-oSA">
                         <barButtonItem key="rightBarButtonItem" image="gearshape.fill" catalog="system" id="rxL-2V-19v">
-                            <color key="tintColor" name="Settings"/>
+                            <color key="tintColor" name="ButtonColor"/>
                             <connections>
                                 <segue destination="1w0-cq-gCn" kind="show" id="vMK-T2-urZ"/>
                             </connections>
@@ -75,7 +75,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h36-38-IWX">
                                 <rect key="frame" x="107" y="118" width="200" height="32"/>
-                                <color key="backgroundColor" name="AllPlayButton"/>
+                                <color key="backgroundColor" name="ButtonColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="JEe-SK-v0C"/>
                                 </constraints>
@@ -123,10 +123,7 @@
     </scenes>
     <resources>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
-        <namedColor name="AllPlayButton">
-            <color red="0.66500002145767212" green="0.73799997568130493" blue="0.93500000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Settings">
+        <namedColor name="ButtonColor">
             <color red="0.51700001955032349" green="0.7160000205039978" blue="0.93500000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
