@@ -440,6 +440,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bicycleLeadingConstraint" destination="TbY-5e-QTf" id="2W4-Bm-8dq"/>
+                        <outlet property="destinationIconTrailingConstraint" destination="BnW-qp-efu" id="vYb-qJ-yd5"/>
                         <outlet property="destinationLabel" destination="ylo-zx-HE6" id="gTC-Gi-eoY"/>
                         <outlet property="detailViewEndTimeLabel" destination="SmB-eZ-Qr4" id="MDa-3o-gyw"/>
                         <outlet property="detailViewScheduledEndTimeLabel" destination="aQg-FT-viS" id="TTV-Oq-H77"/>
@@ -452,6 +454,8 @@
                         <outlet property="scrollViewScheduledStartTimeLabel" destination="nNT-ul-nZR" id="r1a-oY-kdC"/>
                         <outlet property="scrollViewStartTimeLabel" destination="PXO-dt-HyX" id="myd-EE-Vuy"/>
                         <outlet property="speedLabel" destination="bY1-PA-9e4" id="Wur-1F-UG9"/>
+                        <outlet property="startPointIconLeadingConstraint" destination="2T6-is-Zkr" id="lEl-nU-qsJ"/>
+                        <outlet property="startPointIconSizeConstraint" destination="w2z-yr-fXF" id="bKm-FZ-yrH"/>
                         <outlet property="startPointLabel" destination="aZv-rd-5OQ" id="qIW-a1-OYh"/>
                     </connections>
                 </viewController>

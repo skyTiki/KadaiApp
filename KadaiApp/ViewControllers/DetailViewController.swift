@@ -29,10 +29,10 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailViewEndTimeLabel: UILabel!
     
     // アイコン移動で使用する接続
-//    @IBOutlet weak var bicycleLeadingConstraint: NSLayoutConstraint!
-//    @IBOutlet weak var startPointIconSizeConstraint: NSLayoutConstraint!
-//    @IBOutlet weak var startPointIconLeadingConstraint: NSLayoutConstraint!
-//    @IBOutlet weak var destinationIconTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bicycleLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var startPointIconSizeConstraint: NSLayoutConstraint!
+    @IBOutlet weak var startPointIconLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var destinationIconTrailingConstraint: NSLayoutConstraint!
     
     var bicycleMovingDistance: CGFloat = 0
     var bicycleIconSize: CGFloat = 0
@@ -47,11 +47,11 @@ class DetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         setDetailData()
         
-//        bicycleIconSize = startPointIconSizeConstraint.constant * 2.6
-//        destinationIconSize = startPointIconSizeConstraint.constant * 2
-//
-//        // 移動距離算出
-//        bicycleMovingDistance = UIScreen.main.bounds.size.width - (startPointIconLeadingConstraint.constant + startPointIconSizeConstraint.constant + bicycleLeadingConstraint.constant + bicycleIconSize + destinationIconSize + destinationIconTrailingConstraint.constant)
+        bicycleIconSize = startPointIconSizeConstraint.constant * 2.6
+        destinationIconSize = startPointIconSizeConstraint.constant * 2
+
+        // 移動距離算出
+        bicycleMovingDistance = UIScreen.main.bounds.size.width - (startPointIconLeadingConstraint.constant + startPointIconSizeConstraint.constant + bicycleLeadingConstraint.constant + bicycleIconSize + destinationIconSize + destinationIconTrailingConstraint.constant)
         
     }
     
@@ -77,9 +77,6 @@ class DetailViewController: UIViewController {
     }
     @IBAction func tappedPlayMoveButton(_ sender: Any) {
         
-//        UIView.animate(withDuration: 5.0, delay: 2.0) {
-//            self.bicycleLeadingConstraint.constant = self.bicycleMovingDistance
-//        }
         if firstPlayTap {
             
             firstPlayTap = false
@@ -88,11 +85,11 @@ class DetailViewController: UIViewController {
             
             Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (repeatedTimer) in
                 
-//                if self.bicycleLeadingConstraint.constant >= self.bicycleMovingDistance {
-//                    repeatedTimer.invalidate()
-//                }
-//                
-//                self.bicycleLeadingConstraint.constant += 3
+                if self.bicycleLeadingConstraint.constant >= self.bicycleMovingDistance {
+                    repeatedTimer.invalidate()
+                }
+                
+                self.bicycleLeadingConstraint.constant += 3
 //                
                 // 値修正
                 kirotei += 1
